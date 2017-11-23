@@ -27,7 +27,7 @@ app.post('/api', (req, res) => {
   res.json(req.body.color)
 })
 
-app.get('/api/voice', (req, res) => {
+app.post('/api/voice', (req, res) => {
   let color = req.body.color
   console.log(color)
   res.json(color)
