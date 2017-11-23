@@ -48,10 +48,13 @@ app.post('/api/voice', (req, res) => {
 
 app.post('/api/voice/dim', (req, res) => {
   let direction = req.body.direction.toLowerCase()
+  console.log(direction)
   let val = direction=="down" ? -50 : 50;
+  
   state.color.b= Math.max(0,Math.min(state.color.b+val,255))
   state.color.r= Math.max(0,Math.min(state.color.r+val,255))
   state.color.g= Math.max(0,Math.min(state.color.g+val,255))
+
   console.log(state)
   res.json(color)
 })
