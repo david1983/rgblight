@@ -20,10 +20,11 @@ let state = {"color":{"r":0,"g":244,"b":255,"a":1}}
 
 const colors = {
   default: {r:10, g: 10, b: 10, a:1},
-  Yellow: {r: 251, g: 255, b: 0, a: 1},
-  Red: {r: 255, g: 0, b: 0, a: 1},
-  Green: {r: 0, g: 255, b: 0, a: 1},
-  Blue: {r: 0, g: 0, b: 255, a: 1}
+  yellow: {r: 251, g: 255, b: 0, a: 1},
+  red: {r: 255, g: 0, b: 0, a: 1},
+  green: {r: 0, g: 255, b: 0, a: 1},
+  orange: {r: 255, g: 112, b: 0, a: 1},
+  blue: {r: 0, g: 0, b: 255, a: 1}
 }
 
 
@@ -37,7 +38,7 @@ app.post('/api', (req, res) => {
 })
 
 app.post('/api/voice', (req, res) => {
-  let color = req.body.color
+  let color = req.body.color.toLowerCase()
   state.color = colors[color] || colors.default
   state.name = color
 
