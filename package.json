@@ -1,7 +1,7 @@
 {
   "name": "rgb_light",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "app.js",
   "repository": "https://github.com/david1983/rgblight.git",
   "author": "<andreazzini.davide@gmail.com>",
   "license": "MIT",
