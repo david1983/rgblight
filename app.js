@@ -16,7 +16,7 @@ app.use(cors())
 
 app.use(express.static(path.join(__dirname, 'public')))
 
-let state = {}
+let state = {"color":{"r":0,"g":244,"b":255,"a":1}}
 
 app.get('/api', (req, res) => {
 
