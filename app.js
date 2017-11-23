@@ -26,4 +26,11 @@ app.post('/api', (req, res) => {
   state.color = req.body.color
   res.json(req.body.color)
 })
+
+app.get('/api/voice', (req, res) => {
+  let color = req.body.color
+  console.log(color)
+  res.json(color)
+})
+
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
