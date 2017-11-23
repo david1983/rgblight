@@ -17,7 +17,7 @@ app.use(cors())
 app.use(express.static(path.join(__dirname, 'public')))
 
 let state = {"color":{"r":0,"g":244,"b":255,"a":1}}
-
+let prev = {"r":0,"g":244,"b":255,"a":1}
 const colors = {
   default: {r:10, g: 10, b: 10, a:1},
   yellow: {r: 251, g: 255, b: 0, a: 1},
@@ -39,9 +39,16 @@ app.post('/api', (req, res) => {
 
 app.post('/api/voice', (req, res) => {
   let color = req.body.color.toLowerCase()
-  state.color = colors[color] || colors.default
-  state.name = color
-
+  if(color=="on"){
+    state.color = prev
+  }else if (color=="off"){
+    prev = Object.assign({},state.color)
+    state.color = {r:0,g:0,b:0,a:1}
+  }else{
+    state.color = colors[color] || colors.default
+    state.name = color  
+  }
+  
   console.log(state)
   res.json(color)
 })
