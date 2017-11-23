@@ -1,0 +1,14 @@
+{
+  "name": "rgb_light",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/david1983/rgblight.git",
+  "author": "<andreazzini.davide@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.2"
+  },
+  "scripts": {
+    "start": "node app.js"
+  }
+}
