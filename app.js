@@ -18,6 +18,14 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 let state = {"color":{"r":0,"g":244,"b":255,"a":1}}
 
+const colors = {
+  Yellow: {r: 251, g: 255, b: 0, a: 1},
+  Red: {r: 255, g: 0, b: 0, a: 1},
+  Green: {r: 0, g: 255, b: 0, a: 1},
+  Blue: {r: 0, g: 0, b: 255, a: 1}
+}
+
+
 app.get('/api', (req, res) => {
 
   res.json(state)
@@ -29,7 +37,7 @@ app.post('/api', (req, res) => {
 
 app.post('/api/voice', (req, res) => {
   let color = req.body.color
-  console.log(color)
+  state.color = colors[color] || colors.Yellow
   res.json(color)
 })
 
