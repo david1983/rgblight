@@ -18,8 +18,6 @@ app.get('/api', (req, res) => {
   res.json(state)
 })
 app.post('/api', (req, res) => {
-
-  console.log(req.body)
-  res.json({version: req.body})
+  res.json(req.body.color)
 })
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
