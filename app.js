@@ -17,7 +17,7 @@ app.get('/api', (req, res) => {
 
   res.json(state)
 })
-app.get('/post', (req, res) => {
+app.post('/api', (req, res) => {
 
   console.log(req.body)
   res.json({version: req.body})
