@@ -1,6 +1,43 @@
+<!DOCTYPE html>
 <html>
-    <head></head>
-    <body>
-        test
-    </body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS </title>
+<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.17.1/axios.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.css">
+</head>
+<body>
+   
+   
+<input id='colorpicker' />
+   <script>
+   
+   
+$("#colorpicker").spectrum({
+    color: "#f00"
+});
+
+$("#colorpicker").change(function(){
+
+   var s = $("#colorpicker").spectrum("get")
+
+   axios
+      .post(
+         "https://rgblight.herokuapp.com/api", 
+         {color: s.toRgb()})   
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+   
+   console.log(s.toRgb())
+   
+})
+   </script>
+</body>
 </html>
