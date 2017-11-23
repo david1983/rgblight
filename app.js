@@ -46,4 +46,15 @@ app.post('/api/voice', (req, res) => {
   res.json(color)
 })
 
+app.post('/api/voice/dim', (req, res) => {
+  let direction = req.body.direction.toLowerCase()
+  let val = direction=="up" ? 10 : -10;
+  state.color.b+=val
+  state.color.r+=val
+  state.color.g+=val
+  console.log(state)
+  res.json(color)
+})
+
+
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
