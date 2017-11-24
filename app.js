@@ -55,7 +55,7 @@ app.post('/api/voice', (req, res) => {
 
 app.post('/api/voice/dim', (req, res) => {
   let direction = req.body.direction.toLowerCase()
-  console.log(direction)
+  console.log(req.body)
   let val = direction=="down" ? -50 : 50;
   if(req.body.value){
     let val = req.body.value
